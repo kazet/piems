@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python3 -m piems.main
+exec python3 -m piems.main
