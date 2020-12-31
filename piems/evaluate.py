@@ -25,7 +25,7 @@ def _evaluate_tree(t: Tree):
             elif op.data == 'divide':
                 return _evaluate_tree(time) / _evaluate_tree(expr)
             else:
-               assert False, f"unknown operator: {op}"
+                assert False, f"unknown operator: {op}"
         else:
             assert False, "illegal number of children"
     elif t.data == 'const':
