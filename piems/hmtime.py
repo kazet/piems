@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from decimal import Decimal
 
 
@@ -53,7 +51,7 @@ class HMTime:
     def as_minutes_from_midnight(self) -> Decimal:
         return self._hour * 60 + self._minute
 
-    def distance_until(self, obj: HMTime):
+    def distance_until(self, obj: "HMTime"):
         if obj.as_minutes_from_midnight() > self.as_minutes_from_midnight():
             return HMTimeInterval(minutes=obj.as_minutes_from_midnight() - self.as_minutes_from_midnight())
         else:
