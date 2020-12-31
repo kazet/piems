@@ -5,9 +5,9 @@ import readline
 from tbvaccine import TBVaccine
 from termcolor import colored
 
-import evaluate
+from . import evaluate
 
-histfile = os.path.join(os.path.expanduser("~"), ".oc-history")
+histfile = os.path.join(os.path.expanduser("~"), ".piems-history")
 histfile_size = 1000
 readline.set_history_length(1000)
 

@@ -1,8 +1,8 @@
 from decimal import Decimal
 from unittest.case import TestCase
 
-from evaluate import evaluate
-from hmtime import HMTimeInterval
+from .evaluate import evaluate
+from .hmtime import HMTimeInterval
 
 
 class SICTestCase(TestCase):
