@@ -4,7 +4,7 @@ from decimal import Decimal
 
 
 class HMTimeInterval:
-    def __init__(self, hours: Decimal=0, minutes: Decimal=0):
+    def __init__(self, hours: Decimal = 0, minutes: Decimal = 0):
         self._minutes = hours * 60 + minutes
 
     def __str__(self):
@@ -23,15 +23,15 @@ class HMTimeInterval:
     def __add__(self, obj):
         assert isinstance(obj, HMTimeInterval)
         return HMTimeInterval(minutes=self._minutes + obj._minutes)
-    
+
     def __mul__(self, obj):
         assert isinstance(obj, Decimal)
         return HMTimeInterval(minutes=self._minutes * obj)
-    
+
     def __truediv__(self, obj):
         assert isinstance(obj, Decimal)
         return HMTimeInterval(minutes=self._minutes / obj)
-    
+
     def __rmul__(self, obj):
         return self.__mul__(obj)
 
@@ -46,7 +46,7 @@ class HMTimeInterval:
 
 
 class HMTime:
-    def __init__(self, hour: Decimal=0, minute: Decimal=0):
+    def __init__(self, hour: Decimal = 0, minute: Decimal = 0):
         self._hour = hour
         self._minute = minute
 
@@ -57,4 +57,5 @@ class HMTime:
         if obj.as_minutes_from_midnight() > self.as_minutes_from_midnight():
             return HMTimeInterval(minutes=obj.as_minutes_from_midnight() - self.as_minutes_from_midnight())
         else:
-            return HMTimeInterval(minutes=Decimal(24 * 60) - self.as_minutes_from_midnight() + obj.as_minutes_from_midnight())
+            return HMTimeInterval(
+                minutes=Decimal(24 * 60) - self.as_minutes_from_midnight() + obj.as_minutes_from_midnight())
