@@ -2,6 +2,11 @@
 
 from distutils.core import setup
 
+
+with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
+    requires = f.read().splitlines()
+
+
 setup(name='piems',
       version='1.0',
       description='piems - command-line time interval calculator',
@@ -10,4 +15,5 @@ setup(name='piems',
       url='https://github.com/kazet/piems',
       packages=['piems'],
       scripts=['piems/scripts/piems'],
+      install_requires=requires
 )
