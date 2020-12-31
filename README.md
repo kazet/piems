@@ -1,6 +1,8 @@
 # piems
 This is a command-line tools to operate on time intervals.
 
+![Build status](https://travis-ci.com/kazet/piems.svg?branch=master)
+
 ## installation
 To install piems, use:
 ```
