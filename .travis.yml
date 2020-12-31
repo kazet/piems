@@ -4,4 +4,4 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - PYTHONPATH=src python3 -m unittest discover
+  - python3 -m unittest discover

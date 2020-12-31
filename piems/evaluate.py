@@ -2,8 +2,8 @@ from decimal import Decimal
 
 from lark import Tree
 
-import hmtime
-import parser
+from . import hmtime
+from . import parser
 
 
 def _evaluate_tree(t: Tree):
