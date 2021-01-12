@@ -2,7 +2,7 @@ from lark import Lark
 
 
 parser = Lark('''start: expression_l1
-            expression_l1: expression_l2 plus expression_l1 | expression_l2 minus expression_l1 | expression_l2
+            expression_l1: expression_l1 plus expression_l2 | expression_l1 minus expression_l2 | expression_l2
 
             plus: "+"
             minus: "-"
