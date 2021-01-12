@@ -4,5 +4,5 @@ python:
 install:
   - pip install -r requirements.txt -r requirements-dev.txt
 script:
-  - flake8 piems
+  - flake8
   - python3 -m unittest discover
