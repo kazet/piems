@@ -2,7 +2,7 @@ from decimal import Decimal, getcontext, Context
 
 from lark import Tree
 
-from . import hmtime
+from . import hourminutetime
 from . import parser
 
 
@@ -32,14 +32,14 @@ def _evaluate_tree(t: Tree, context: Context):
         number, = tuple(t.children)
         return Decimal(number, context)
     elif t.data == 'time_interval_raw':
-        result = hmtime.HMTimeInterval()
+        result = hourminutetime.HourMinuteTimeInterval()
         for child in t.children:
             number, = tuple(child.children)
             number = Decimal(number, context)
             if child.data == 'time_interval_raw_hour':
-                result += hmtime.HMTimeInterval(hours=number)
+                result += hourminutetime.HourMinuteTimeInterval(hours=number)
             elif child.data == 'time_interval_raw_minute':
-                result += hmtime.HMTimeInterval(minutes=number)
+                result += hourminutetime.HourMinuteTimeInterval(minutes=number)
         return result
     elif t.data == 'time_interval_calculated':
         time_1, time_2 = tuple(t.children)
@@ -50,7 +50,7 @@ def _evaluate_tree(t: Tree, context: Context):
         hour, minute = tuple(t.children)
         hour = _evaluate_tree(hour, context)
         minute = _evaluate_tree(minute, context)
-        return hmtime.HMTime(hour, minute)
+        return hourminutetime.HourMinuteTime(hour, minute)
     elif t.data == 'two_digits':
         digit_1, digit_2 = tuple(t.children)
         return Decimal(digit_1 + digit_2, context)
